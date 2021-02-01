@@ -1,4 +1,5 @@
 import cv2
+from predict import predict
 
 faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 cap = cv2.VideoCapture(1)
@@ -18,7 +19,7 @@ while True:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         # predicting emotion
-        result = predict_emotion(gray[x:x + w, y:y + h])
+        result = predict(gray[x:x + w, y:y + h])
 
         font = cv2.FONT_HERSHEY_SIMPLEX
 
