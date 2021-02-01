@@ -1,39 +1,41 @@
 import cv2
 from predict import predict
 
-faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-cap = cv2.VideoCapture(1)
 
-if not cap.isOpened():
-    cap = cv2.VideoCapture(0)
-if not cap.isOpened():
-    print("Cannot open webcam")
+def video():
+    faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    cap = cv2.VideoCapture(1)
 
-while True:
-    ret, frame = cap.read()  # read image from video
+    if not cap.isOpened():
+        cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("Cannot open webcam")
 
-    # rectangle around face
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = faceCascade.detectMultiScale(gray, 1.1, 4)
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    while True:
+        ret, frame = cap.read()  # read image from video
 
-        # predicting emotion
-        result = predict(gray[x:x + w, y:y + h])
+        # rectangle around face
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = faceCascade.detectMultiScale(gray, 1.1, 4)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-        font = cv2.FONT_HERSHEY_SIMPLEX
+            # predicting emotion
+            result = predict(gray[x:x + w, y:y + h])
 
-        cv2.putText(frame,
-                    result,
-                    (50, 50),
-                    font, 2,
-                    (0, 0, 255),
-                    2,
-                    cv2.LINE_AA)
-    cv2.imshow('Demo video', frame)
+            font = cv2.FONT_HERSHEY_SIMPLEX
 
-    if cv2.waitKey(2) & 0xFF == ord('q'):
-        break
+            cv2.putText(frame,
+                        result,
+                        (50, 50),
+                        font, 2,
+                        (0, 0, 255),
+                        2,
+                        cv2.LINE_AA)
+        cv2.imshow('Demo video', frame)
 
-cap.release()
-cv2.destroyAllWindows()
+        if cv2.waitKey(2) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
