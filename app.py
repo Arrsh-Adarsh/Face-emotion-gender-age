@@ -1,12 +1,11 @@
 import os
-import yaml
 from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, redirect, url_for, flash
 from webcam import video
 
 app = Flask(__name__)
 
-config = yaml.safe_load(open('setval.yaml'))
+#config = yaml.safe_load(open('setval.yaml'))
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -22,12 +21,12 @@ def home():
 
 @app.route("/live prediction")
 def video_pred():
-    return video()
-
-
-@app.route("/image")
-def image_pred():
     pass
+
+
+@app.route("/photoUpload")
+def image_pred():
+    return "image"
 
 
 def allowed_file(filename):

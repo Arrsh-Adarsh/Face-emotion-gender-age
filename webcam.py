@@ -1,13 +1,13 @@
 import cv2
-from predict import predict
+#from predict import predict
 
 
 def video():
     faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(1)
     if not cap.isOpened():
         print("Cannot open webcam")
 
@@ -21,12 +21,12 @@ def video():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
             # predicting emotion
-            result = predict(gray[x:x + w, y:y + h])
+            # result = predict(gray[x:x + w, y:y + h])
 
             font = cv2.FONT_HERSHEY_SIMPLEX
 
             cv2.putText(frame,
-                        result,
+                        "result",
                         (50, 50),
                         font, 2,
                         (0, 0, 255),
