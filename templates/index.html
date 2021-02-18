@@ -81,8 +81,8 @@
                     <img src="https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c98fcbda8c6949882e10_upload_52px.png" alt="" loading="lazy">
                     <div class="card-title">Upload from device</div>
                     <div class="card-description">Upload your photo from your device.</div>
-                    <form method="get" action="/photoUpload">
-                    <div id="button-style"  class="primary-button w-button"><input type=file name=file><input type=submit value=Upload></div>
+                    <form method="POST"  action="/photoUpload">
+                    <div id="button-style"  class="primary-button w-button"><input type="file" name="file"><input type="submit" value="Upload"></div>
                     </form>
                 </div>
             </div>

@@ -1,18 +1,9 @@
 import os
-from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, redirect, url_for, flash
 from webcam import video
 from image import image
 
 app = Flask(__name__)
-
-# config = yaml.safe_load(open('setval.yaml'))
-UPLOAD_FOLDER = '/path/to/the/uploads'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route("/")
@@ -20,42 +11,25 @@ def home():
     return render_template('index.html')
 
 
+# calling function to open webcam
 @app.route("/live prediction")
 def video_pred():
     video()
     return render_template('index.html')
 
 
-@app.route("/photoUpload")
+@app.route("/photoUpload", methods=['GET', 'POST'])
 def image_pred():
-    image()
-    return render_template('index.html')
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
-@app.route('/file', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return render_template('file.html')
+    # if request.method == 'POST':
+    #     if 'file1' not in request.files:
+    #         return 'there is no file in form!'
+    #     file1 = request.files['file1']
+    #     path = os.path.join(app.config['UPLOAD_FOLDER'], file1.filename)
+    #     file1.save(path)
+    #     return 'image uploaded'
+    # image()
+    # return render_template('index.html')
+    return 'This function is not available yet.'
 
 
 if __name__ == '__main__':

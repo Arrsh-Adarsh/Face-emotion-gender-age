@@ -1,6 +1,8 @@
 import cv2
 from predict import predict
 
+# predicting function for image as an input
+# This is currently not functioning
 def image(img):
     faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
