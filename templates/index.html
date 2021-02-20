@@ -6,7 +6,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <meta content="Webflow" name="generator">
         <link href="https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/css/humbles-initial-project-525f33.webflow.1ec068627.css" rel="stylesheet" type="text/css">
-        <link href="css/styles.css" rel="stylesheet" type="text/css">
+       
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700" media="all">
         <script type="text/javascript">WebFont.load({  google: {    families: ["DM Sans:regular,500,700"]  }});</script>
@@ -39,7 +39,7 @@
                     <nav role="navigation" class="nav-menu w-nav-menu">
                         <a href="/" aria-current="page" class="nav-link w-nav-link w--current" style="max-width: 728px;">Home</a>
                         <a href="#Services" class="nav-link w-nav-link" style="max-width: 728px">Services</a>
-                        <a href='#' class="nav-link w-nav-link" style="max-width: 728px">Login</a>
+                        <a href='/login' target="_blank" class="nav-link w-nav-link" style="max-width: 728px">Login</a>
                         <a href="#about-us" class="nav-link w-nav-link" style="max-width: 728px">About</a>
                         <a href="#contact-form" class="nav-link w-nav-link" style="max-width: 728px">Contact</a>
                     </nav>
@@ -59,7 +59,7 @@
                 <div class="w-col w-col-6">
                     <h1 class="heading">Face recognition</h1>
                     <p class="paragraph">Hello World is a simple program<br></p>
-                    <a href="#" class="primary-button w-button">Explore</a>
+                    <a href="#about-us" class="primary-button w-button">About</a>
                 </div>
                 <div class="w-col w-col-6"><img src="https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c6cf3dc2c439640669c9_emotion3.png" alt="different-emotions" sizes="(max-width: 767px) 88vw, (max-width: 991px) 46vw, 460px" srcset="https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c6cf3dc2c439640669c9_emotion3-p-500.png 500w, https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c6cf3dc2c439640669c9_emotion3-p-800.png 800w, https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c6cf3dc2c439640669c9_emotion3-p-1080.png 1080w, https://uploads-ssl.webflow.com/6014ba7b4a93058b6492ace7/6014c6cf3dc2c439640669c9_emotion3.png 1440w">
                 </div>
@@ -89,45 +89,7 @@
         </div>
     </section>
 
-    <section id="contact-form" class="contact-form">
-        <div class="w-container">
-            <h2>Contact form</h2>
-            <p>Feel free to contact us 😊</p>
-            <div id="formInstructions" class="small-text">
-                <em>Fields marked with an asterisk (*) are required.</em>
-            </div>
-            <div class="w-form">
-                <form id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form">
-                    <div class="contact-form-grid">
-                        <div id="w-node-cd53fca5c2d1-b6da5471">
-                            <label for="First-Name" id="contact-first-name">First name *</label>
-                            <input type="text" class="w-input" maxlength="256" name="First-Name" data-name="First Name" id="First-Name" required="">
-                        </div>
-                        <div id="w-node-cd53fca5c2d5-b6da5471">
-                            <label for="Last-Name" id="contact-last-name">Last name *</label>
-                            <input type="text" class="w-input" maxlength="256" name="Last-Name" data-name="Last Name" id="Last-Name" required="">
-                        </div>
-                        <div id="w-node-cd53fca5c2d9-b6da5471">
-                            <label for="Email" id="contact-email">Email *</label>
-                            <input type="email" class="w-input" maxlength="256" name="Email" data-name="Email" id="Email" required="">
-                        </div>
-                        <div id="w-node-cd53fca5c2dd-b6da5471"></div>
-                        <div id="w-node-cd53fca5c2e1-b6da5471">
-                            <label for="Message" id="contact-message">Message</label>
-                        </div>
-                    </div>
-                    <textarea data-name="Message" maxlength="5000" id="Message" name="Message" class="w-input"></textarea>
-                    <input type="submit" value="Submit" data-wait="Please wait..." class="submit-button primary-button w-button">
-                </form>
-                <div class="w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
-                </div>
-                <div class="w-form-fail">
-                    <div>Oops! Something went wrong while submitting the form.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <section id="about-us" class="about-project">
         <div class="flex-container w-container">

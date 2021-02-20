@@ -8,7 +8,7 @@ from keras.models import load_model
 # prediction emotion from image
 
 def predict_emotion(img):
-    model = load_model('model/emotion.h5')
+    model = load_model('model/emotion5.h5')
     emotion_label = {0: 'Angry',
                      1: 'Disgust',
                      2: 'Fear',

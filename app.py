@@ -11,6 +11,11 @@ def home():
     return render_template('index.html')
 
 
+@app.route("/login")
+def log():
+    return render_template('login.html')
+
+
 # calling function to open webcam
 @app.route("/live prediction")
 def video_pred():
